@@ -1,0 +1,9 @@
+<%= simple_form_for [ @restaurant, @review ] do |f| %>
+  <%= f.input :content %>
+  <%= f.label :rating %>
+  <%= f.collection_radio_buttons :rating, ["5", '4', '3', '2', '1', '0'], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
+    <%= b.label(:"data-value" => b.value) { b.radio_button + b.text } %>
+  <% end %><br>
+
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
